@@ -3,7 +3,7 @@
 
 #include <atomic>
 #include <condition_variable>
-#include <gtest/gtest.h>
+#include <gtest.h>
 #include <memory>
 #include <mutex>
 #include <string>

@@ -18,8 +18,8 @@ mg_connection* HttpsServer::initServer(mg_mgr* mgr, MG_CB(mg_event_handler_t eve
     mg_mgr_init(mgr, this);
 
     mg_bind_opts bind_opts{};
-    bind_opts.ssl_cert = sslCertFileName.c_str();
-    bind_opts.ssl_key = sslKeyFileName.c_str();
+    //bind_opts.ssl_cert = sslCertFileName.c_str();
+    //bind_opts.ssl_key = sslKeyFileName.c_str();
     std::string port = std::to_string(GetPort());
     mg_connection* c = mg_bind_opt(mgr, port.c_str(), event_handler, bind_opts);
     if (!c) {
