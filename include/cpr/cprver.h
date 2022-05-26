@@ -4,7 +4,7 @@
 /**
  * CPR version as a string.
  **/
-#define CPR_VERSION ".."
+#define CPR_VERSION "1.0.1"
 
 /**
  * CPR version split up into parts.
