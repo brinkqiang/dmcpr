@@ -6,7 +6,6 @@ LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 INCLUDE(cmake/ModuleImport.cmake)
 INCLUDE(cmake/ModuleCompileOptions.cmake)
 ModuleSetCompileOptions()
-#ModuleSetWinCompilerFlags()
 
 SET(cpr_VERSION_MAJOR "1")
 SET(cpr_VERSION_MINOR "0")
