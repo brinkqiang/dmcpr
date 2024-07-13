@@ -1105,7 +1105,7 @@ endif()
 set(CURL_PULL_STDINT_H ${HAVE_STDINT_H})
 set(CURL_PULL_INTTYPES_H ${HAVE_INTTYPES_H})
 
-include(CMake/OtherTests.cmake)
+#include(CMake/OtherTests.cmake)
 
 add_definitions(-DHAVE_CONFIG_H)
 
