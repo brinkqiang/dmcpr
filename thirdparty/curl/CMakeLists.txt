@@ -47,19 +47,8 @@ include(CheckCCompilerFlag)
 
 project(CURL C)
 
-## openwrt if(NOT WIN32)
-## openwrt set(CMAKE_THREAD_LIBS_INIT "-lpthread")
-## openwrt set(CMAKE_HAVE_THREADS_LIBRARY 1)
-## openwrt set(CMAKE_USE_WIN32_THREADS_INIT 0)
-## openwrt set(CMAKE_USE_PTHREADS_INIT 1)
-## openwrt set(THREADS_PREFER_PTHREAD_FLAG ON)
-## openwrt endif()
+## openwrt start
 if(NOT WIN32)
-  set(CMAKE_THREAD_LIBS_INIT "-lpthread")
-  set(CMAKE_HAVE_THREADS_LIBRARY 1)
-  set(CMAKE_USE_WIN32_THREADS_INIT 0)
-  set(CMAKE_USE_PTHREADS_INIT 1)
-  set(THREADS_PREFER_PTHREAD_FLAG ON)
 
   # 使用 uname 命令获取操作系统名称
   execute_process(
@@ -75,10 +64,19 @@ if(NOT WIN32)
   else ()
     message(STATUS "System is not OpenWRT")
     set(IS_OPENWRT 0)
-  endif ()  
+  endif ()
+
+  if (IS_OPENWRT)
+    set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+    set(CMAKE_HAVE_THREADS_LIBRARY 1)
+    set(CMAKE_USE_WIN32_THREADS_INIT 0)
+    set(CMAKE_USE_PTHREADS_INIT 1)
+    set(THREADS_PREFER_PTHREAD_FLAG ON)
+  endif()
 else ()
   set(IS_OPENWRT 0)
 endif ()
+## openwrt end
 
 message(WARNING "the curl cmake build system is poorly maintained. Be aware")
 
