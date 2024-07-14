@@ -1132,7 +1132,7 @@ set(CURL_PULL_STDINT_H ${HAVE_STDINT_H})
 set(CURL_PULL_INTTYPES_H ${HAVE_INTTYPES_H})
 
 # openwrt remove include(CMake/OtherTests.cmake)
-IF(IS_OPENWRT)
+IF(NOT IS_OPENWRT)
   include(CMake/OtherTests.cmake)
 ENDIF()
 
