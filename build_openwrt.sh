@@ -5,12 +5,6 @@
 # yum -y install gcc gcc-c++ autoconf libtool automake make
 #
 
-# - clone code
-# git clone https://github.com/brinkqiang/dmcurl.git
-# pushd dmcurl
-# git submodule update --init --recursive
-#
-
 # pushd depends_path
 # libtoolize && aclocal && autoheader && autoconf && automake --add-missing
 # sh configure
