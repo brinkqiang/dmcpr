@@ -54,6 +54,13 @@ project(CURL C)
 ## openwrt set(CMAKE_USE_PTHREADS_INIT 1)
 ## openwrt set(THREADS_PREFER_PTHREAD_FLAG ON)
 ## openwrt endif()
+if(NOT WIN32)
+  set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+  set(CMAKE_HAVE_THREADS_LIBRARY 1)
+  set(CMAKE_USE_WIN32_THREADS_INIT 0)
+  set(CMAKE_USE_PTHREADS_INIT 1)
+  set(THREADS_PREFER_PTHREAD_FLAG ON)
+endif()
 message(WARNING "the curl cmake build system is poorly maintained. Be aware")
 
 file(READ ${CURL_SOURCE_DIR}/include/curl/curlver.h CURL_VERSION_H_CONTENTS)
@@ -1106,6 +1113,7 @@ set(CURL_PULL_STDINT_H ${HAVE_STDINT_H})
 set(CURL_PULL_INTTYPES_H ${HAVE_INTTYPES_H})
 
 # openwrt remove include(CMake/OtherTests.cmake)
+
 include(CMake/OtherTests.cmake)
 
 add_definitions(-DHAVE_CONFIG_H)
