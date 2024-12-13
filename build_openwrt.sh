@@ -13,15 +13,15 @@
 rm -rf build
 mkdir build
 
-pushd thirdparty/curl
+cd thirdparty/curl
 ./buildconf
 ./configure --disable-dependency-tracking
 # autoreconf -i
-popd
+cd ..
 
-pushd build
+cd build
 
 cmake -DCMAKE_BUILD_TYPE=relwithdebinfo ..
 cmake --build . --config relwithdebinfo -- -j$(nproc)
-popd
+cd ..
 # popd
